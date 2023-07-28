@@ -1,4 +1,29 @@
 #include <iostream>
+#include <array>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int n, k;
+    cin >> n >> k;
+    short* arr = new short[n];
+    for(int i = 0; i < n; i++) {
+        arr[i] = i+1;
+    }
+    cout << "<";
+    for(int len = n, i = 0; len > 1; len--) {
+        i = (i + k - 1) % len;
+        cout << arr[i] << ", ";
+        for(int j = i; j < len-1; j++) {
+            arr[j] = arr[j+1];
+        }
+    }
+    cout << arr[0] << ">";
+    return 0;
+}
+
+/*#include <iostream>
 #include <list>
 
 using namespace std;
@@ -79,3 +104,4 @@ int main()
 //
 // Created by 규북 on 2023/07/28.
 //
+*/
